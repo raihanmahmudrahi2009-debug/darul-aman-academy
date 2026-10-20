@@ -1,117 +1,463 @@
-<!doctype html>
+<!
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b513b">
-<meta name="description" content="Darul Aman Academy, Cox's Bazar — পরিচিতি, শিক্ষা, আবাসন ও ভর্তি তথ্য।">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#064e3b">
+<meta name="description" content="Darul Aman Academy, Cox's Bazar — শিক্ষা, হিফজ বিভাগ ও ভর্তি তথ্য।">
 <title>Darul Aman Academy | Cox's Bazar</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+:root{
+  --green:#064e3b;
+  --green2:#087f5b;
+  --gold:#e8bd65;
+  --cream:#f7f8f4;
+  --text:#19352b;
+  --muted:#64746b;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.8;
+}
+button,a{font:inherit}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(6,78,59,.97);
+  color:white;
+  box-shadow:0 3px 18px #0002;
+}
+.nav{
+  max-width:1150px;margin:auto;padding:12px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:bold}
+.brand img{
+  width:47px;height:47px;object-fit:cover;
+  border-radius:50%;background:white;border:2px solid var(--gold);
+}
+.brand small{display:block;color:#e8d9ad;font-size:11px;font-weight:normal}
+.navlinks{display:flex;gap:15px;align-items:center;font-size:14px}
+.navlinks a:hover{color:var(--gold)}
+.menu-btn{
+  display:none;background:transparent;border:1px solid #ffffff70;
+  color:white;border-radius:8px;padding:5px 10px;
+}
+main{min-height:70vh}
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(125deg,#043e30,#08785a);
+  color:white;padding:65px 20px 75px;text-align:center;
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border:1px solid #ffffff18;
+  width:280px;height:280px;border-radius:50%;
+}
+.hero:before{top:-180px;left:-70px}
+.hero:after{bottom:-210px;right:-60px;width:380px;height:380px}
+.hero-inner{position:relative;z-index:1;max-width:850px;margin:auto}
+.eyebrow{color:var(--gold);font-weight:bold;letter-spacing:1px}
+h1{font-size:clamp(30px,5vw,49px);line-height:1.4;margin:12px 0}
+.hero p{max-width:690px;margin:10px auto 22px;color:#e7f0eb}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{
+  display:inline-block;border:0;border-radius:10px;
+  padding:11px 19px;font-weight:bold;
+  background:var(--gold);color:#263c2f;
+}
+.btn:hover{filter:brightness(.95);transform:translateY(-1px)}
+.btn-outline{border:1px solid #ffffff9c;background:transparent;color:white}
+.container{width:min(1100px,92%);margin:auto}
+.section{padding:48px 0}
+.section-head{text-align:center;margin-bottom:25px}
+.section-head h2{font-size:clamp(24px,4vw,33px);margin:0;color:var(--green)}
+.section-head p{color:var(--muted);margin:6px 0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{
+  background:white;border:1px solid #e5ebe5;border-radius:17px;
+  overflow:hidden;box-shadow:0 8px 24px #123b2310;
+}
+.card img{width:100%;height:190px;object-fit:cover;display:block;background:#e5eee8}
+.card-body{padding:18px}
+.card h3{color:var(--green);margin:0 0 7px;font-size:21px}
+.card p{color:var(--muted);margin:0 0 15px}
+.card .btn{padding:8px 14px;font-size:14px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.info-grid img{width:100%;max-height:360px;object-fit:cover;border-radius:18px}
+.info-box{
+  background:white;border:1px solid #e3e9e2;
+  border-radius:16px;padding:23px;
+}
+.info-box h3{margin-top:0;color:var(--green)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{padding:18px;background:#e9f1eb;border-radius:13px}
+.feature strong{display:block;color:var(--green);font-size:17px}
+.feature span{font-size:14px;color:#52675b}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery img{width:100%;height:190px;object-fit:cover;border-radius:12px}
+.page-top{
+  padding:36px 0;background:linear-gradient(120deg,#064e3b,#0b7657);
+  color:white;
+}
+.page-top h1{font-size:32px;margin:0}
+.back{display:inline-block;margin-bottom:12px;color:#f1d48e}
+.page-content{padding:35px 0 55px}
+.page-content h2{color:var(--green);margin-top:30px}
+.table-wrap{overflow-x:auto;background:white;border-radius:12px;border:1px solid #e0e8e0}
+table{border-collapse:collapse;width:100%;min-width:490px}
+th,td{padding:12px;text-align:left;border-bottom:1px solid #e7ece7}
+th{background:#e6f0e9;color:var(--green)}
+.note{background:#fff5d9;border-left:4px solid var(--gold);padding:12px 15px;border-radius:7px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+footer{background:#073d2e;color:#eaf3ed;padding:30px 0;text-align:center}
+footer p{margin:4px}
+footer small{color:#bfd4c7}
+.hidden{display:none!important}
+@media(max-width:760px){
+  .navlinks{
+    display:none;position:absolute;top:72px;left:0;right:0;
+    background:#064e3b;padding:17px;flex-direction:column;align-items:stretch;
+  }
+  .navlinks.open{display:flex}
+  .menu-btn{display:block}
+  .cards{grid-template-columns:1fr}
+  .card img{height:220px}
+  .info-grid,.contact-grid{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery img{height:150px}
+  .hero{padding:48px 16px 56px}
+}
+</style>
 </head>
+
 <body>
-<div class="topline">
-  <div class="container topline-inner">
-    <span data-bn="দ্বীনি শিক্ষা • নৈতিকতা • সুন্দর ভবিষ্যৎ" data-en="Islamic education • Character • A brighter future">দ্বীনি শিক্ষা • নৈতিকতা • সুন্দর ভবিষ্যৎ</span>
-    <span data-bn="কক্সবাজার, বাংলাদেশ" data-en="Cox's Bazar, Bangladesh">কক্সবাজার, বাংলাদেশ</span>
-  </div>
-</div>
-<header class="header">
-  <div class="container nav">
-    <a class="brand" href="#home" aria-label="Darul Aman Academy home">
-      <img src="FB_IMG_1792516561426.jpg" alt="Darul Aman Academy Logo" class="brand-mark">
-      <span><strong>Darul Aman Academy</strong><small data-bn="কক্সবাজার" data-en="Cox's Bazar">কক্সবাজার</small></span>
+<header>
+  <div class="nav">
+    <a class="brand" href="#home" onclick="showHome()">
+      <img src="FB_IMG_1792516561426.jpg" alt="Darul Aman Academy logo">
+      <span>Darul Aman Academy<small>Cox's Bazar, Bangladesh</small></span>
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
-    <nav id="navLinks">
-      <a href="#about" data-bn="পরিচিতি" data-en="About">পরিচিতি</a>
-      <a href="#education" data-bn="শিক্ষা" data-en="Education">শিক্ষা</a>
-      <a href="#facilities" data-bn="সুবিধা" data-en="Facilities">সুবিধা</a>
-      <a href="#rules" data-bn="নিয়ম" data-en="Rules">নিয়ম</a>
-      <a href="#admission" data-bn="ভর্তি" data-en="Admission">ভর্তি</a>
-      <a href="#contact" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
-      <button id="langToggle" class="lang-toggle" type="button">English</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="মেনু খুলুন">☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="#home" onclick="showHome()">হোম</a>
+      <a href="#divisions" onclick="showHome()">বিভাগসমূহ</a>
+      <a href="#about" onclick="showHome()">পরিচিতি</a>
+      <a href="#gallery" onclick="showHome()">গ্যালারি</a>
+      <a href="#contact" onclick="showHome()">যোগাযোগ</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="hero-pattern"></div>
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow" data-bn="২০০৭ সাল থেকে শিক্ষার পথচলা" data-en="A journey of education since 2007">২০০৭ সাল থেকে শিক্ষার পথচলা</span>
-      <h1 data-bn="জ্ঞান, আদব ও নৈতিকতার আলোয় <em>আগামীর পথচলা</em>" data-en="Guiding tomorrow through <em>knowledge, manners and values</em>">জ্ঞান, আদব ও নৈতিকতার আলোয় <em>আগামীর পথচলা</em></h1>
-      <p data-bn="দারুল আমান একাডেমি, কক্সবাজার—দ্বীনি শিক্ষা, সাধারণ শিক্ষা এবং সুন্দর চরিত্র গঠনের লক্ষ্যে পরিচালিত একটি শিক্ষাপ্রতিষ্ঠান।" data-en="Darul Aman Academy, Cox's Bazar is an educational institution focused on Islamic learning, general education and character development.">দারুল আমান একাডেমি, কক্সবাজার—দ্বীনি শিক্ষা, সাধারণ শিক্ষা এবং সুন্দর চরিত্র গঠনের লক্ষ্যে পরিচালিত একটি শিক্ষাপ্রতিষ্ঠান।</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#admission" data-bn="ভর্তি সম্পর্কে জানুন ↗" data-en="Admission information ↗">ভর্তি সম্পর্কে জানুন ↗</a>
-        <a class="button secondary" href="#about" data-bn="আমাদের সম্পর্কে" data-en="Discover us">আমাদের সম্পর্কে</a>
-      </div>
-      <div class="hero-note"><span class="dot"></span><span data-bn="প্রতিষ্ঠাতা ও পরিচালক: হাফেজ হাশেম মাহমুদ" data-en="Founder and Director: Hafez Hashem Mahmud">প্রতিষ্ঠাতা ও পরিচালক: হাফেজ হাশেম মাহমুদ</span></div>
-    </div>
-    <div class="hero-visual">
-      <div class="arch">
-        <div class="arch-inner">
-          <div class="crescent">☾</div>
-          <div class="arabesque">۞</div>
-          <p data-bn="শিক্ষার আলো" data-en="The light of learning">শিক্ষার আলো</p>
-          <small>DARUL AMAN ACADEMY</small>
+  <div id="homePage">
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="eyebrow">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <h1>আসসালামু আলাইকুম</h1>
+        <h2>আমাদের Darul Aman Academy-তে আপনাকে স্বাগতম</h2>
+        <p>দ্বীনি শিক্ষা, সুন্দর চরিত্র ও জ্ঞান অর্জনের পথে আপনাকে স্বাগত জানাই। আমাদের বিভাগগুলো সম্পর্কে জানতে নিচে দেখুন।</p>
+        <div class="actions">
+          <button class="btn" onclick="playWelcome()">🔊 স্বাগতম শুনুন</button>
+          <a class="btn btn-outline" href="#divisions">বিভাগগুলো দেখুন ↓</a>
         </div>
       </div>
-      <div class="floating-card"><span class="floating-icon">✦</span><span data-bn="প্রতিষ্ঠিত" data-en="Established">প্রতিষ্ঠিত</span><strong>2007</strong></div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="quick-facts">
-  <div class="container facts-grid">
-    <div><strong>2007</strong><span data-bn="প্রতিষ্ঠার সাল" data-en="Year established">প্রতিষ্ঠার সাল</span></div>
-    <div><strong>Play–Dakhil 10</strong><span data-bn="শ্রেণি" data-en="Class levels">শ্রেণি</span></div>
-    <div><strong>3</strong><span data-bn="শিক্ষা বিভাগ" data-en="Learning divisions">শিক্ষা বিভাগ</span></div>
-    <div><strong>3 বেলা</strong><span data-bn="খাবারের ব্যবস্থা" data-en="Meals provided">খাবারের ব্যবস্থা</span></div>
-  </div>
-</section>
+    <section class="section" id="divisions">
+      <div class="container">
+        <div class="section-head">
+          <h2>আপনি কোন বিভাগ সম্পর্কে জানতে চান?</h2>
+          <p>আপনার পছন্দের বিভাগটি নির্বাচন করুন</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <img src="FB_IMG_1792516583476.jpg" alt="একাডেমি বিভাগের ছবি" loading="lazy">
+            <div class="card-body">
+              <h3>📚 একাডেমি</h3>
+              <p>শ্রেণি, পাঠদান ও একাডেমিক রুটিন সম্পর্কে জানুন।</p>
+              <a class="btn" href="#academy">বিস্তারিত দেখুন →</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="FB_IMG_1792516598862.jpg" alt="ছেলেদের হিফজ বিভাগের ছবি" loading="lazy">
+            <div class="card-body">
+              <h3>📖 ছেলেদের হিফজ</h3>
+              <p>হিফজ ও নাজেরা বিভাগের তথ্য এবং রুটিন দেখুন।</p>
+              <a class="btn" href="#boys">বিস্তারিত দেখুন →</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="FB_IMG_1792516829774.jpg" alt="মহিলা হিফজ বিভাগের ছবি" loading="lazy">
+            <div class="card-body">
+              <h3>🌸 মহিলা হিফজ</h3>
+              <p>মহিলা হিফজ ও নাজেরা বিভাগের তথ্য জানুন।</p>
+              <a class="btn" href="#women">বিস্তারিত দেখুন →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="about">
-  <div class="container split">
-    <div>
-      <span class="section-kicker" data-bn="আমাদের পরিচিতি" data-en="Who we are">আমাদের পরিচিতি</span>
-      <h2 data-bn="একটি সুন্দর ভবিষ্যৎ গড়ার প্রত্যয়ে" data-en="With a vision for a brighter future">একটি সুন্দর ভবিষ্যৎ গড়ার প্রত্যয়ে</h2>
-      <p data-bn="দারুল আমান একাডেমি ২০০৭ সালে হাফেজ হাশেম মাহমুদের উদ্যোগে প্রতিষ্ঠিত হয়। প্রতিষ্ঠানের লক্ষ্য হলো শিক্ষার্থীদের কুরআন-হাদিস ও ইসলামী শিক্ষার পাশাপাশি সাধারণ শিক্ষায় দক্ষ করে তোলা এবং আদব-আখলাক, সততা, শৃঙ্খলা ও দায়িত্ববোধে গড়ে তোলা।" data-en="Darul Aman Academy was established in 2007 by Hafez Hashem Mahmud. Its stated aims are to provide Qur'anic and Islamic learning alongside general education, while encouraging good manners, honesty, discipline and responsibility.">দারুল আমান একাডেমি ২০০৭ সালে হাফেজ হাশেম মাহমুদের উদ্যোগে প্রতিষ্ঠিত হয়। প্রতিষ্ঠানের লক্ষ্য হলো শিক্ষার্থীদের কুরআন-হাদিস ও ইসলামী শিক্ষার পাশাপাশি সাধারণ শিক্ষায় দক্ষ করে তোলা এবং আদব-আখলাক, সততা, শৃঙ্খলা ও দায়িত্ববোধে গড়ে তোলা।</p>
-      <p data-bn="আমাদের প্রত্যাশা—শিক্ষার্থীরা জ্ঞান ও নৈতিকতার আলোয় আলোকিত হয়ে পরিবার, সমাজ ও দেশের কল্যাণে অবদান রাখবে।" data-en="The hope is that students grow through knowledge and values and contribute positively to their families, community and country.">আমাদের প্রত্যাশা—শিক্ষার্থীরা জ্ঞান ও নৈতিকতার আলোয় আলোকিত হয়ে পরিবার, সমাজ ও দেশের কল্যাণে অবদান রাখবে।</p>
-    </div>
-    <aside class="quote-card">
-      <span class="quote-mark">“</span>
-      <p data-bn="শিক্ষা শুধু তথ্য শেখা নয়; সুন্দর চরিত্র, শৃঙ্খলা ও দায়িত্ববোধ গড়ে তোলাও শিক্ষার অংশ।" data-en="Education is not only about learning information; it is also about building character, discipline and responsibility.">শিক্ষা শুধু তথ্য শেখা নয়; সুন্দর চরিত্র, শৃঙ্খলা ও দায়িত্ববোধ গড়ে তোলাও শিক্ষার অংশ।</p>
-      <small data-bn="দারুল আমান একাডেমির শিক্ষাগত লক্ষ্য" data-en="An educational aim of Darul Aman Academy">দারুল আমান একাডেমির শিক্ষাগত লক্ষ্য</small>
-    </aside>
-  </div>
-</section>
+    <section class="section" id="about">
+      <div class="container info-grid">
+        <div>
+          <div class="eyebrow">আমাদের পরিচিতি</div>
+          <h2 style="color:var(--green)">Darul Aman Academy</h2>
+          <p>Darul Aman Academy, Cox's Bazar-এর ওয়েবসাইটে আপনাকে স্বাগতম। আমাদের বিভিন্ন বিভাগ, শিক্ষা কার্যক্রম ও যোগাযোগের তথ্য এখানে এক জায়গায় পাওয়া যাবে।</p>
+          <a class="btn" href="#contact">যোগাযোগ করুন</a>
+        </div>
+        <img src="FB_IMG_1792516839025.jpg" alt="প্রতিষ্ঠানের ছবি" loading="lazy">
+      </div>
+    </section>
 
-<section class="section pale" id="education">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>আমাদের বিভাগসমূহ</h2>
+          <p>প্রতিটি বিভাগের জন্য আলাদা তথ্য ও রুটিন</p>
+        </div>
+        <div class="features">
+          <div class="feature"><strong>একাডেমিক শিক্ষা</strong><span>শ্রেণি ও পাঠদানের তথ্য</span></div>
+          <div class="feature"><strong>হিফজ বিভাগ</strong><span>কুরআন মুখস্থের কার্যক্রম</span></div>
+          <div class="feature"><strong>নাজেরা বিভাগ</strong><span>কুরআন তিলাওয়াত শিক্ষা</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <h2>ফটো গ্যালারি</h2>
+          <p>প্রতিষ্ঠানের কিছু ছবি</p>
+        </div>
+        <div class="gallery">
+          <img src="FB_IMG_1792516583476.jpg" alt="প্রতিষ্ঠানের ছবি ১" loading="lazy">
+          <img src="FB_IMG_1792516598862.jpg" alt="প্রতিষ্ঠানের ছবি ২" loading="lazy">
+          <img src="FB_IMG_1792516829774.jpg" alt="প্রতিষ্ঠানের ছবি ৩" loading="lazy">
+          <img src="FB_IMG_1792516839025.jpg" alt="প্রতিষ্ঠানের ছবি ৪" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>যোগাযোগ</h2>
+          <p>ভর্তি ও অন্যান্য তথ্যের জন্য প্রতিষ্ঠানের সঙ্গে যোগাযোগ করুন</p>
+        </div>
+        <div class="contact-grid">
+          <div class="info-box">
+            <h3>📍 ঠিকানা</h3>
+            <p>দক্ষিণ সাহিত্যিকা পল্লী, BGB ক্যাম্প এলাকা, কক্সবাজার</p>
+          </div>
+          <div class="info-box">
+            <h3>📞 ফোন</h3>
+            <p><a href="tel:01729872581">01729-872581</a></p>
+            <p>ফোন করার আগে নম্বরটি যাচাই করে নিন।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="divisionPage" class="hidden">
+    <section class="page-top">
+      <div class="container">
+        <a class="back" href="#home" onclick="showHome()">← মূল পাতায় ফিরে যান</a>
+        <h1 id="divisionTitle">বিভাগ</h1>
+        <p id="divisionSubtitle">বিভাগের তথ্য</p>
+      </div>
+    </section>
+    <section class="page-content">
+      <div class="container">
+        <div class="info-box">
+          <h2 style="margin-top:0">বিভাগ পরিচিতি</h2>
+          <p id="divisionDescription"></p>
+        </div>
+
+        <h2>📅 দৈনিক রুটিন</h2>
+        <p class="note">নিচের সময়সূচি নমুনা কাঠামো। প্রতিষ্ঠানের সঠিক রুটিন অনুযায়ী সময় ও কার্যক্রম পরিবর্তন করে প্রকাশ করুন।</p>
+        <div id="routineTables"></div>
+
+        <div class="info-box" style="margin-top:25px">
+          <h3>আরও তথ্য</h3>
+          <p>ভর্তি, ক্লাসের সময় ও বিভাগসংক্রান্ত সঠিক তথ্য জানতে প্রতিষ্ঠানের সঙ্গে যোগাযোগ করুন।</p>
+          <a class="btn" href="#contact" onclick="showHome()">যোগাযোগের তথ্য দেখুন</a>
+        </div>
+        <p style="margin-top:25px"><a class="btn" href="#divisions" onclick="showHome()">← সব বিভাগ দেখুন</a></p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
   <div class="container">
-    <div class="section-heading">
-      <span class="section-kicker" data-bn="শিক্ষা কার্যক্রম" data-en="Education">শিক্ষা কার্যক্রম</span>
-      <h2 data-bn="শিক্ষার একাধিক ধারা" data-en="Different learning divisions">শিক্ষার একাধিক ধারা</h2>
-      <p data-bn="প্রতিষ্ঠানে তিনটি প্রধান বিভাগ রয়েছে। প্রতিটি বিভাগের বিস্তারিত রুটিন ও পাঠ্যক্রম পরে যোগ করা হবে।" data-en="The academy has three main divisions. Detailed routines and curricula for each division can be added later.">প্রতিষ্ঠানে তিনটি প্রধান বিভাগ রয়েছে। প্রতিটি বিভাগের বিস্তারিত রুটিন ও পাঠ্যক্রম পরে যোগ করা হবে।</p>
-    </div>
-    <div class="cards three">
-      <article class="info-card"><div class="card-icon">☾</div><h3 data-bn="মহিলা হিফজ বিভাগ" data-en="Girls' Hifz Division">মহিলা হিফজ বিভাগ</h3><p data-bn="নাজেরা ও হিফজের রুটিন আলাদা। বিস্তারিত সময়সূচি শিগগির যুক্ত হবে।" data-en="Nazera and Hifz have separate routines. The detailed schedule will be added soon.">নাজেরা ও হিফজের রুটিন আলাদা। বিস্তারিত সময়সূচি শিগগির যুক্ত হবে।</p><span class="card-tag" data-bn="রুটিন পরে যুক্ত হবে" data-en="Routine to be added">রুটিন পরে যুক্ত হবে</span></article>
-      <article class="info-card"><div class="card-icon">۞</div><h3 data-bn="ছেলেদের হিফজ বিভাগ" data-en="Boys' Hifz Division">ছেলেদের হিফজ বিভাগ</h3><p data-bn="নাজেরা ও হিফজের জন্য পৃথক সময়সূচি রয়েছে। বিস্তারিত তথ্য পরে যুক্ত হবে।" data-en="Separate schedules are used for Nazera and Hifz. More details will be added later.">নাজেরা ও হিফজের জন্য পৃথক সময়সূচি রয়েছে। বিস্তারিত তথ্য পরে যুক্ত হবে।</p><span class="card-tag" data-bn="রুটিন পরে যুক্ত হবে" data-en="Routine to be added">রুটিন পরে যুক্ত হবে</span></article>
-      <article class="info-card"><div class="card-icon">✎</div><h3 data-bn="একাডেমি বিভাগ" data-en="Academy Division">একাডেমি বিভাগ</h3><p data-bn="প্লে, নার্সারি, ১ম থেকে ১০ম শ্রেণি পর্যন্ত। বিষয় ও রুটিনের বিস্তারিত পরে যোগ হবে।" data-en="Play, Nursery and Classes 1 through 10. Subject and routine details will be added later.">প্লে, নার্সারি, ১ম থেকে ১০ম শ্রেণি পর্যন্ত। বিষয় ও রুটিনের বিস্তারিত পরে যোগ হবে।</p><span class="card-tag" data-bn="বিষয় তালিকা পরে যুক্ত হবে" data-en="Subjects to be added">বিষয় তালিকা পরে যুক্ত হবে</span></article>
-    </div>
-    <div class="note-box"><strong data-bn="বিষয় সম্পর্কে নোট:" data-en="Subject note:">বিষয় সম্পর্কে নোট:</strong> <span data-bn="আপনার দেওয়া তথ্য অনুযায়ী সাধারণ শিক্ষার বিষয়গুলো পরে নিশ্চিত করে যোগ করা হবে। বিজ্ঞান বিষয় পড়ানো হয় না—এই তথ্যটি আপাতত নথিভুক্ত আছে।" data-en="General education subjects will be added after confirmation. Based on the information provided, Science is not currently listed as a subject.">আপনার দেওয়া তথ্য অনুযায়ী সাধারণ শিক্ষার বিষয়গুলো পরে নিশ্চিত করে যোগ করা হবে। বিজ্ঞান বিষয় পড়ানো হয় না—এই তথ্যটি আপাতত নথিভুক্ত আছে।</span></div>
+    <p><strong>Darul Aman Academy</strong></p>
+    <p>Cox's Bazar, Bangladesh</p>
+    <small>© <span id="year"></span> Darul Aman Academy. সর্বস্বত্ব সংরক্ষিত।</small>
   </div>
-</section>
+</footer>
 
-<section class="section" id="facilities">
-  <div class="container">
-    <div class="section-heading">
-      <span class="section-kicker" data-bn="সুযোগ-সুবিধা" data-en="Facilities">সুযোগ-সুবিধা</span>
-      <h2 data-bn="শিক্ষা ও আবাসনের পরিবেশ" data-en="Learning and residential environment">শিক্ষা ও আবাসনের পরিবেশ</h2>
-      <p data-bn="প্রতিষ্ঠান সম্পর্কে আপনার দেওয়া তথ্যের ভিত্তিতে নিচের সুবিধাগুলো উল্লেখ করা হয়েছে।" data-en="The following facilities are listed based on the information you provided.">প্রতিষ্ঠান সম্পর্কে আপনার দেওয়া তথ্যের ভিত্তিতে নিচের সুবিধাগুলো উল্লেখ করা হয়েছে।</p>
-    </div>
-    <div class="cards four">
-      <article class="facility"><span>◈</span><h3 data-bn="পরিচ্ছন্ন পরিবেশ" data-en="Clean environment">পরিচ্ছন্ন পরিবেশ</h3><p data-bn="পরিষ্কার-পরিচ্ছন্নতা বজায় রাখার ওপর গুরুত্ব।" data-en="Emphasis on maintaining cleanliness.">পরিষ্কার-পরিচ্ছন্নতা বজায় রাখার ওপর গুরুত্ব।</p></article>
+<script>
+const divisions = {
+  academy: {
+    title: "একাডেমি",
+    subtitle: "একাডেমিক শিক্ষা ও শ্রেণি কার্যক্রম",
+    description: "এই বিভাগে একাডেমিক শিক্ষা, শ্রেণি কার্যক্রম ও পাঠদানের রুটিন সম্পর্কে তথ্য থাকবে। প্রতিষ্ঠানের নিশ্চিত তথ্য অনুযায়ী এই পরিচিতি সম্পাদনা করুন।",
+    routines: [
+      {
+        title: "ক্লাস রুটিন",
+        rows: [
+          ["সময়", "কার্যক্রম"],
+          ["সময় যোগ করুন", "প্রথম ক্লাস"],
+          ["সময় যোগ করুন", "দ্বিতীয় ক্লাস"],
+          ["সময় যোগ করুন", "বিরতি"],
+          ["সময় যোগ করুন", "পরবর্তী ক্লাস"]
+        ]
+      }
+    ]
+  },
+  boys: {
+    title: "ছেলেদের হিফজ বিভাগ",
+    subtitle: "হিফজ ও নাজেরা কার্যক্রম",
+    description: "ছেলেদের হিফজ বিভাগে কুরআন মুখস্থ ও নাজেরা পাঠের তথ্য এখানে থাকবে। নিচে হিফজ ও নাজেরা রুটিন আলাদা করে সাজানো হয়েছে।",
+    routines: [
+      {
+        title: "হিফজ রুটিন",
+        rows: [
+          ["সময়", "কার্যক্রম"],
+          ["সময় যোগ করুন", "নতুন সবক"],
+          ["সময় যোগ করুন", "সাবকি"],
+          ["সময় যোগ করুন", "আমুখতা / পুরোনো পড়া"]
+        ]
+      },
+      {
+        title: "নাজেরা রুটিন",
+        rows: [
+          ["সময়", "কার্যক্রম"],
+          ["সময় যোগ করুন", "কুরআন তিলাওয়াত"],
+          ["সময় যোগ করুন", "তাজবিদ ও অনুশীলন"]
+        ]
+      }
+    ]
+  },
+  women: {
+    title: "মহিলা হিফজ বিভাগ",
+    subtitle: "মহিলা হিফজ ও নাজেরা কার্যক্রম",
+    description: "মহিলা হিফজ বিভাগের পরিচিতি, হিফজ এবং নাজেরা কার্যক্রমের তথ্য এখানে থাকবে। নিচের রুটিনগুলো প্রতিষ্ঠানের প্রকৃত সময়সূচি অনুযায়ী সম্পাদনা করুন।",
+    routines: [
+      {
+        title: "হিফজ রুটিন",
+        rows: [
+          ["সময়", "কার্যক্রম"],
+          ["সময় যোগ করুন", "নতুন সবক"],
+          ["সময় যোগ করুন", "সাবকি"],
+          ["সময় যোগ করুন", "আমুখতা / পুরোনো পড়া"]
+        ]
+      },
+      {
+        title: "নাজেরা রুটিন",
+        rows: [
+          ["সময়", "কার্যক্রম"],
+          ["সময় যোগ করুন", "কুরআন তিলাওয়াত"],
+          ["সময় যোগ করুন", "তাজবিদ ও অনুশীলন"]
+        ]
+      }
+    ]
+  }
+};
+
+function showHome(){
+  document.getElementById("homePage").classList.remove("hidden");
+  document.getElementById("divisionPage").classList.add("hidden");
+  document.getElementById("navlinks").classList.remove("open");
+  window.scrollTo(0,0);
+}
+
+function showDivision(key){
+  const d = divisions[key];
+  if(!d) return showHome();
+
+  document.getElementById("homePage").classList.add("hidden");
+  document.getElementById("divisionPage").classList.remove("hidden");
+  document.getElementById("divisionTitle").textContent = d.title;
+  document.getElementById("divisionSubtitle").textContent = d.subtitle;
+  document.getElementById("divisionDescription").textContent = d.description;
+
+  const target = document.getElementById("routineTables");
+  target.innerHTML = "";
+
+  d.routines.forEach(routine => {
+    const heading = document.createElement("h3");
+    heading.textContent = routine.title;
+    target.appendChild(heading);
+
+    const wrap = document.createElement("div");
+    wrap.className = "table-wrap";
+    const table = document.createElement("table");
+
+    routine.rows.forEach((row, index) => {
+      const tr = document.createElement("tr");
+      row.forEach(cell => {
+        const td = document.createElement(index === 0 ? "th" : "td");
+        td.textContent = cell;
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    });
+
+    wrap.appendChild(table);
+    target.appendChild(wrap);
+  });
+
+  document.getElementById("navlinks").classList.remove("open");
+  window.scrollTo(0,0);
+}
+
+function route(){
+  const hash = location.hash.replace("#","");
+  if(hash === "academy") return showDivision("academy");
+  if(hash === "boys") return showDivision("boys");
+  if(hash === "women") return showDivision("women");
+  showHome();
+}
+
+function toggleMenu(){
+  document.getElementById("navlinks").classList.toggle("open");
+}
+
+function playWelcome(){
+  if(!("speechSynthesis" in window)){
+    alert("এই ব্রাউজারে ভয়েস সুবিধা পাওয়া যাচ্ছে না।");
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const message = new SpeechSynthesisUtterance(
+    "আসসালামু আলাইকুম। আমাদের দারুল আমান একাডেমিতে আপনাকে স্বাগতম।"
+  );
+  message.lang = "bn-BD";
+  message.rate = 0.85;
+  message.pitch = 1;
+  window.speechSynthesis.speak(message);
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
+ntaining cleanliness.">পরিষ্কার-পরিচ্ছন্নতা বজায় রাখার ওপর গুরুত্ব।</p></article>
       <article class="facility"><span>⌁</span><h3 data-bn="CCTV পর্যবেক্ষণ" data-en="CCTV monitoring">CCTV পর্যবেক্ষণ</h3><p data-bn="আপনার দেওয়া তথ্য অনুযায়ী, পরিবেশ CCTV দ্বারা পর্যবেক্ষণ করা হয়।" data-en="According to the information provided, the premises are monitored by CCTV.">আপনার দেওয়া তথ্য অনুযায়ী, পরিবেশ CCTV দ্বারা পর্যবেক্ষণ করা হয়।</p></article>
       <article class="facility"><span>✧</span><h3 data-bn="যোগ্য শিক্ষক" data-en="Qualified teachers">যোগ্য শিক্ষক</h3><p data-bn="শিক্ষার্থীদের শিক্ষা ও দিকনির্দেশনায় শিক্ষকদের ভূমিকা।" data-en="Teachers support students' learning and guidance.">শিক্ষার্থীদের শিক্ষা ও দিকনির্দেশনায় শিক্ষকদের ভূমিকা।</p></article>
       <article class="facility"><span>⌂</span><h3 data-bn="আবাসিক হোস্টেল" data-en="Residential hostel">আবাসিক হোস্টেল</h3><p data-bn="পরিষ্কার-পরিচ্ছন্ন হোস্টেল এবং শিক্ষার্থী ও শিক্ষকদের জন্য তিন বেলার খাবারের ব্যবস্থা।" data-en="A clean hostel and three daily meals for students and teachers.">পরিষ্কার-পরিচ্ছন্ন হোস্টেল এবং শিক্ষার্থী ও শিক্ষকদের জন্য তিন বেলার খাবারের ব্যবস্থা।</p></article>
