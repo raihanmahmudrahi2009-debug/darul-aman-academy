@@ -1,5 +1,7 @@
 <!
-<!DOCTYPE html>
+<!DOCTYPEfrom pathlib import Path
+
+html = r'''<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
@@ -7,253 +9,222 @@
 <meta name="theme-color" content="#064e3b">
 <meta name="description" content="Darul Aman Academy, Cox's Bazar — শিক্ষা, হিফজ বিভাগ ও ভর্তি তথ্য।">
 <title>Darul Aman Academy | Cox's Bazar</title>
-
 <style>
-:root{
-  --green:#064e3b;
-  --green2:#087f5b;
-  --gold:#e8bd65;
-  --cream:#f7f8f4;
-  --text:#19352b;
-  --muted:#64746b;
-  --white:#fff;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:var(--cream);
-  color:var(--text);
-  line-height:1.8;
-}
-button,a{font:inherit}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer}
-header{
-  position:sticky;top:0;z-index:10;
-  background:rgba(6,78,59,.97);
-  color:white;
-  box-shadow:0 3px 18px #0002;
-}
-.nav{
-  max-width:1150px;margin:auto;padding:12px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-}
-.brand{display:flex;align-items:center;gap:10px;font-weight:bold}
-.brand img{
-  width:47px;height:47px;object-fit:cover;
-  border-radius:50%;background:white;border:2px solid var(--gold);
-}
-.brand small{display:block;color:#e8d9ad;font-size:11px;font-weight:normal}
-.navlinks{display:flex;gap:15px;align-items:center;font-size:14px}
-.navlinks a:hover{color:var(--gold)}
-.menu-btn{
-  display:none;background:transparent;border:1px solid #ffffff70;
-  color:white;border-radius:8px;padding:5px 10px;
-}
-main{min-height:70vh}
-.hero{
-  position:relative;overflow:hidden;
-  background:linear-gradient(125deg,#043e30,#08785a);
-  color:white;padding:65px 20px 75px;text-align:center;
-}
-.hero:before,.hero:after{
-  content:"";position:absolute;border:1px solid #ffffff18;
-  width:280px;height:280px;border-radius:50%;
-}
-.hero:before{top:-180px;left:-70px}
-.hero:after{bottom:-210px;right:-60px;width:380px;height:380px}
-.hero-inner{position:relative;z-index:1;max-width:850px;margin:auto}
-.eyebrow{color:var(--gold);font-weight:bold;letter-spacing:1px}
-h1{font-size:clamp(30px,5vw,49px);line-height:1.4;margin:12px 0}
-.hero p{max-width:690px;margin:10px auto 22px;color:#e7f0eb}
-.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
-.btn{
-  display:inline-block;border:0;border-radius:10px;
-  padding:11px 19px;font-weight:bold;
-  background:var(--gold);color:#263c2f;
-}
-.btn:hover{filter:brightness(.95);transform:translateY(-1px)}
-.btn-outline{border:1px solid #ffffff9c;background:transparent;color:white}
-.container{width:min(1100px,92%);margin:auto}
-.section{padding:48px 0}
-.section-head{text-align:center;margin-bottom:25px}
-.section-head h2{font-size:clamp(24px,4vw,33px);margin:0;color:var(--green)}
-.section-head p{color:var(--muted);margin:6px 0}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{
-  background:white;border:1px solid #e5ebe5;border-radius:17px;
-  overflow:hidden;box-shadow:0 8px 24px #123b2310;
-}
-.card img{width:100%;height:190px;object-fit:cover;display:block;background:#e5eee8}
-.card-body{padding:18px}
-.card h3{color:var(--green);margin:0 0 7px;font-size:21px}
-.card p{color:var(--muted);margin:0 0 15px}
-.card .btn{padding:8px 14px;font-size:14px}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
-.info-grid img{width:100%;max-height:360px;object-fit:cover;border-radius:18px}
-.info-box{
-  background:white;border:1px solid #e3e9e2;
-  border-radius:16px;padding:23px;
-}
-.info-box h3{margin-top:0;color:var(--green)}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.feature{padding:18px;background:#e9f1eb;border-radius:13px}
-.feature strong{display:block;color:var(--green);font-size:17px}
-.feature span{font-size:14px;color:#52675b}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.gallery img{width:100%;height:190px;object-fit:cover;border-radius:12px}
-.page-top{
-  padding:36px 0;background:linear-gradient(120deg,#064e3b,#0b7657);
-  color:white;
-}
-.page-top h1{font-size:32px;margin:0}
-.back{display:inline-block;margin-bottom:12px;color:#f1d48e}
-.page-content{padding:35px 0 55px}
-.page-content h2{color:var(--green);margin-top:30px}
-.table-wrap{overflow-x:auto;background:white;border-radius:12px;border:1px solid #e0e8e0}
-table{border-collapse:collapse;width:100%;min-width:490px}
-th,td{padding:12px;text-align:left;border-bottom:1px solid #e7ece7}
-th{background:#e6f0e9;color:var(--green)}
-.note{background:#fff5d9;border-left:4px solid var(--gold);padding:12px 15px;border-radius:7px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-footer{background:#073d2e;color:#eaf3ed;padding:30px 0;text-align:center}
-footer p{margin:4px}
-footer small{color:#bfd4c7}
-.hidden{display:none!important}
-@media(max-width:760px){
-  .navlinks{
-    display:none;position:absolute;top:72px;left:0;right:0;
-    background:#064e3b;padding:17px;flex-direction:column;align-items:stretch;
-  }
-  .navlinks.open{display:flex}
-  .menu-btn{display:block}
-  .cards{grid-template-columns:1fr}
-  .card img{height:220px}
-  .info-grid,.contact-grid{grid-template-columns:1fr}
-  .features{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .gallery img{height:150px}
-  .hero{padding:48px 16px 56px}
-}
+:root{--green:#064e3b;--green2:#087653;--light:#ecfdf5;--gold:#d4af62;--text:#18352b;--muted:#64756c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Noto Sans Bengali",Arial,sans-serif;background:#f5faf7;color:var(--text);line-height:1.8}
+button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:var(--green);color:white;box-shadow:0 3px 14px #0002}
+.nav{max-width:1100px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-size:17px;font-weight:bold}.menu{display:flex;flex-wrap:wrap;gap:12px}.menu a{font-size:13px;color:white}.menu a:hover{color:var(--gold)}
+.hero{background:linear-gradient(135deg,#043d2d,#087653);color:white;text-align:center;padding:60px 18px 52px;position:relative;overflow:hidden}
+.hero:before{content:"۞";position:absolute;font-size:210px;color:#ffffff0b;left:-25px;top:-75px}.hero-content{position:relative;max-width:800px;margin:auto}
+.bismillah{color:#f1d899;font-size:25px}.hero h1{font-size:clamp(27px,5vw,43px);margin:12px 0}.hero p{max-width:650px;margin:12px auto 25px;color:#e3f4eb}
+.btn{display:inline-block;border:0;border-radius:9px;padding:10px 18px;background:var(--gold);color:#17392a;font-weight:bold;cursor:pointer;margin:4px}.btn:hover{filter:brightness(.95)}
+.btn-outline{background:transparent;border:1px solid white;color:white}
+.container{width:min(1100px,92%);margin:auto}section{padding:40px 0;scroll-margin-top:80px}
+.section-title{text-align:center;margin:0 0 8px;color:var(--green)}.section-desc{text-align:center;color:var(--muted);max-width:700px;margin:0 auto 25px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:white;padding:22px;border-radius:15px;border:1px solid #e1eee6;box-shadow:0 6px 20px #064e3b0a}
+.card h3{color:var(--green);margin-top:0}.card-icon{font-size:32px}.card .btn{margin-left:0}
+.soft{background:var(--light)}.info-list{padding-left:22px}.info-list li{margin-bottom:7px}
+.notice{border-left:4px solid var(--gold);padding:14px 17px;border-radius:7px;background:#fff9e9;margin-top:18px}
+.contact-box{background:var(--green);color:white;padding:28px;border-radius:15px;text-align:center}.contact-box h2{color:#f1d899}.contact-box a{color:#ffe6a6}
+.post{padding:18px;border:1px solid #e1eee6;border-radius:12px;background:white;margin-bottom:12px;overflow-wrap:anywhere}
+.post time{color:var(--muted);font-size:12px}.post h3{margin-bottom:5px;color:var(--green)}
+footer{text-align:center;padding:23px 12px;background:#032d21;color:#e3f4eb;font-size:13px}
+label{display:block;margin:10px 0 5px;font-weight:bold}input,textarea{width:100%;padding:11px;border:1px solid #cadbd0;border-radius:8px;background:white;color:#18352b}
+textarea{min-height:110px;resize:vertical}.form-box{max-width:650px;margin:25px auto 0;padding:20px;background:white;border-radius:14px;border:1px solid #e1eee6}
+.small{font-size:12px;color:var(--muted)}.hidden{display:none!important}
+@media(max-width:600px){.nav{align-items:flex-start;flex-direction:column}.menu{gap:10px}.hero{padding-top:42px}section{padding:30px 0}}
 </style>
 </head>
-
 <body>
 <header>
-  <div class="nav">
-    <a class="brand" href="#home" onclick="showHome()">
-      <img src="FB_IMG_1792516561426.jpg" alt="Darul Aman Academy logo">
-      <span>Darul Aman Academy<small>Cox's Bazar, Bangladesh</small></span>
-    </a>
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="মেনু খুলুন">☰</button>
-    <nav class="navlinks" id="navlinks">
-      <a href="#home" onclick="showHome()">হোম</a>
-      <a href="#divisions" onclick="showHome()">বিভাগসমূহ</a>
-      <a href="#about" onclick="showHome()">পরিচিতি</a>
-      <a href="#gallery" onclick="showHome()">গ্যালারি</a>
-      <a href="#contact" onclick="showHome()">যোগাযোগ</a>
-    </nav>
-  </div>
+<nav class="nav">
+<a class="brand" href="#home">🌿 Darul Aman Academy</a>
+<div class="menu">
+<a href="#home">হোম</a><a href="#about">পরিচিতি</a><a href="#divisions">বিভাগসমূহ</a><a href="#admission">ভর্তি</a><a href="#notices">নোটিশ</a><a href="#contact">যোগাযোগ</a>
+</div>
+</nav>
 </header>
 
 <main>
-  <div id="homePage">
-    <section class="hero" id="home">
-      <div class="hero-inner">
-        <div class="eyebrow">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-        <h1>আসসালামু আলাইকুম</h1>
-        <h2>আমাদের Darul Aman Academy-তে আপনাকে স্বাগতম</h2>
-        <p>দ্বীনি শিক্ষা, সুন্দর চরিত্র ও জ্ঞান অর্জনের পথে আপনাকে স্বাগত জানাই। আমাদের বিভাগগুলো সম্পর্কে জানতে নিচে দেখুন।</p>
-        <div class="actions">
-          <button class="btn" onclick="playWelcome()">🔊 স্বাগতম শুনুন</button>
-          <a class="btn btn-outline" href="#divisions">বিভাগগুলো দেখুন ↓</a>
-        </div>
-      </div>
-    </section>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+<h1>আসসালামু আলাইকুম</h1>
+<h2>Darul Aman Academy, Cox's Bazar</h2>
+<p>আমাদের প্রতিষ্ঠানে আপনাকে স্বাগতম। দ্বীনি শিক্ষা ও সুন্দর ভবিষ্যৎ গড়ার প্রত্যয়ে আমাদের শিক্ষাপ্রতিষ্ঠানের সঙ্গে থাকুন।</p>
+<button class="btn" id="voiceBtn" type="button">🔊 Welcome Voice শুনুন</button>
+<button class="btn btn-outline" type="button" onclick="document.getElementById('divisions').scrollIntoView()">বিভাগসমূহ দেখুন ↓</button>
+</div>
+</section>
 
-    <section class="section" id="divisions">
-      <div class="container">
-        <div class="section-head">
-          <h2>আপনি কোন বিভাগ সম্পর্কে জানতে চান?</h2>
-          <p>আপনার পছন্দের বিভাগটি নির্বাচন করুন</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <img src="FB_IMG_1792516583476.jpg" alt="একাডেমি বিভাগের ছবি" loading="lazy">
-            <div class="card-body">
-              <h3>📚 একাডেমি</h3>
-              <p>শ্রেণি, পাঠদান ও একাডেমিক রুটিন সম্পর্কে জানুন।</p>
-              <a class="btn" href="#academy">বিস্তারিত দেখুন →</a>
-            </div>
-          </article>
-          <article class="card">
-            <img src="FB_IMG_1792516598862.jpg" alt="ছেলেদের হিফজ বিভাগের ছবি" loading="lazy">
-            <div class="card-body">
-              <h3>📖 ছেলেদের হিফজ</h3>
-              <p>হিফজ ও নাজেরা বিভাগের তথ্য এবং রুটিন দেখুন।</p>
-              <a class="btn" href="#boys">বিস্তারিত দেখুন →</a>
-            </div>
-          </article>
-          <article class="card">
-            <img src="FB_IMG_1792516829774.jpg" alt="মহিলা হিফজ বিভাগের ছবি" loading="lazy">
-            <div class="card-body">
-              <h3>🌸 মহিলা হিফজ</h3>
-              <p>মহিলা হিফজ ও নাজেরা বিভাগের তথ্য জানুন।</p>
-              <a class="btn" href="#women">বিস্তারিত দেখুন →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<section id="about"><div class="container">
+<h2 class="section-title">আমাদের পরিচিতি</h2>
+<p class="section-desc">Darul Aman Academy, Cox's Bazar-এর ওয়েবসাইটে আপনাকে স্বাগতম। এখানে আমাদের বিভাগ, ভর্তি ও যোগাযোগের তথ্য জানতে পারবেন।</p>
+<div class="cards">
+<article class="card"><div class="card-icon">📚</div><h3>শিক্ষা</h3><p>শিক্ষার্থীদের শিক্ষা কার্যক্রম সম্পর্কে জানুন।</p></article>
+<article class="card"><div class="card-icon">🕌</div><h3>দ্বীনি পরিবেশ</h3><p>দ্বীনি শিক্ষার বিভাগগুলো সম্পর্কে বিস্তারিত দেখুন।</p></article>
+<article class="card"><div class="card-icon">🤝</div><h3>যোগাযোগ</h3><p>ভর্তি ও অন্যান্য তথ্যের জন্য কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।</p></article>
+</div></div></section>
 
-    <section class="section" id="about">
-      <div class="container info-grid">
-        <div>
-          <div class="eyebrow">আমাদের পরিচিতি</div>
-          <h2 style="color:var(--green)">Darul Aman Academy</h2>
-          <p>Darul Aman Academy, Cox's Bazar-এর ওয়েবসাইটে আপনাকে স্বাগতম। আমাদের বিভিন্ন বিভাগ, শিক্ষা কার্যক্রম ও যোগাযোগের তথ্য এখানে এক জায়গায় পাওয়া যাবে।</p>
-          <a class="btn" href="#contact">যোগাযোগ করুন</a>
-        </div>
-        <img src="FB_IMG_1792516839025.jpg" alt="প্রতিষ্ঠানের ছবি" loading="lazy">
-      </div>
-    </section>
+<section class="soft" id="divisions"><div class="container">
+<h2 class="section-title">আমাদের বিভাগসমূহ</h2><p class="section-desc">আপনার প্রয়োজন অনুযায়ী নিচের বিভাগ নির্বাচন করুন।</p>
+<div class="cards">
+<article class="card"><div class="card-icon">🎓</div><h3>Academy বিভাগ</h3><p>Academy বিভাগের পরিচিতি ও শিক্ষাসংক্রান্ত তথ্য।</p><a class="btn" href="#academy">বিস্তারিত দেখুন</a></article>
+<article class="card"><div class="card-icon">📖</div><h3>Boys' Hifz বিভাগ</h3><p>ছাত্রদের হিফজ বিভাগের তথ্য ও ভর্তি সম্পর্কে জানুন।</p><a class="btn" href="#boys-hifz">বিস্তারিত দেখুন</a></article>
+<article class="card"><div class="card-icon">🌸</div><h3>Women's Hifz বিভাগ</h3><p>ছাত্রীদের হিফজ বিভাগের তথ্য ও ভর্তি সম্পর্কে জানুন।</p><a class="btn" href="#women-hifz">বিস্তারিত দেখুন</a></article>
+</div></div></section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>আমাদের বিভাগসমূহ</h2>
-          <p>প্রতিটি বিভাগের জন্য আলাদা তথ্য ও রুটিন</p>
-        </div>
-        <div class="features">
-          <div class="feature"><strong>একাডেমিক শিক্ষা</strong><span>শ্রেণি ও পাঠদানের তথ্য</span></div>
-          <div class="feature"><strong>হিফজ বিভাগ</strong><span>কুরআন মুখস্থের কার্যক্রম</span></div>
-          <div class="feature"><strong>নাজেরা বিভাগ</strong><span>কুরআন তিলাওয়াত শিক্ষা</span></div>
-        </div>
-      </div>
-    </section>
+<section id="academy"><div class="container"><h2 class="section-title">🎓 Academy বিভাগ</h2><div class="card">
+<p>Academy বিভাগের ভর্তি ও শিক্ষাসংক্রান্ত বিস্তারিত জানতে প্রতিষ্ঠানের কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।</p><a class="btn" href="#contact">যোগাযোগ করুন</a>
+</div></div></section>
 
-    <section class="section" id="gallery">
-      <div class="container">
-        <div class="section-head">
-          <h2>ফটো গ্যালারি</h2>
-          <p>প্রতিষ্ঠানের কিছু ছবি</p>
-        </div>
-        <div class="gallery">
-          <img src="FB_IMG_1792516583476.jpg" alt="প্রতিষ্ঠানের ছবি ১" loading="lazy">
-          <img src="FB_IMG_1792516598862.jpg" alt="প্রতিষ্ঠানের ছবি ২" loading="lazy">
-          <img src="FB_IMG_1792516829774.jpg" alt="প্রতিষ্ঠানের ছবি ৩" loading="lazy">
-          <img src="FB_IMG_1792516839025.jpg" alt="প্রতিষ্ঠানের ছবি ৪" loading="lazy">
-        </div>
-      </div>
-    </section>
+<section class="soft" id="boys-hifz"><div class="container"><h2 class="section-title">📖 Boys' Hifz বিভাগ</h2><div class="card">
+<p>ছাত্রদের হিফজ বিভাগের ভর্তি, আবাসন ও অন্যান্য তথ্যের জন্য প্রতিষ্ঠানের কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।</p><a class="btn" href="#contact">যোগাযোগ করুন</a>
+</div></div></section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>যোগাযোগ</h2>
-          <p>ভর্তি ও অন্যান্য তথ্যের জন্য প্রতিষ্ঠানের সঙ্গে যোগাযোগ করুন</p>
+<section id="women-hifz"><div class="container"><h2 class="section-title">🌸 Women's Hifz বিভাগ</h2><div class="card">
+<p>ছাত্রীদের হিফজ বিভাগের ভর্তি ও অন্যান্য তথ্য জানতে প্রতিষ্ঠানের কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।</p><a class="btn" href="#contact">যোগাযোগ করুন</a>
+</div></div></section>
+
+<section class="soft" id="admission"><div class="container">
+<h2 class="section-title">ভর্তি সংক্রান্ত তথ্য</h2><p class="section-desc">ভর্তি, আবাসন ও ফি সম্পর্কে নিশ্চিত তথ্য জানতে সরাসরি প্রতিষ্ঠানের কর্তৃপক্ষের সঙ্গে কথা বলুন।</p>
+<div class="card"><h3>ভর্তির জন্য যোগাযোগ</h3><ul class="info-list">
+<li>প্রতিষ্ঠান: Darul Aman Academy</li><li>অবস্থান: Cox's Bazar, Bangladesh</li><li>ভর্তি ও ফি: কর্তৃপক্ষের কাছ থেকে নিশ্চিত করুন</li>
+</ul><a class="btn" href="#contact">যোগাযোগের তথ্য</a></div>
+<div class="notice">নোট: এখানে দেওয়া তথ্যগুলো সাধারণ। সঠিক ফোন নম্বর, ফি ও ভর্তি-সংক্রান্ত নিয়ম কর্তৃপক্ষের কাছ থেকে যোগ করে নিন।</div>
+</div></section>
+
+<section id="notices"><div class="container">
+<h2 class="section-title">নোটিশ ও নতুন পোস্ট</h2><p class="section-desc">প্রতিষ্ঠানের আপডেট ও ঘোষণা এখানে দেখানো হবে।</p>
+<div id="postList"><p class="small" id="emptyPosts">এখনো কোনো পোস্ট প্রকাশ করা হয়নি।</p></div>
+<details class="form-box">
+<summary><strong>নতুন পোস্ট যোগ করুন</strong></summary>
+<form id="postForm">
+<label for="postTitle">পোস্টের শিরোনাম</label><input id="postTitle" required maxlength="120" placeholder="শিরোনাম লিখুন">
+<label for="postBody">পোস্টের বিবরণ</label><textarea id="postBody" required maxlength="5000" placeholder="বিস্তারিত লিখুন"></textarea>
+<button class="btn" type="submit">পোস্ট প্রকাশ করুন</button>
+<p class="small">মনে রাখবেন: এই ফর্মের পোস্ট শুধু এই ব্রাউজার/ডিভাইসে সংরক্ষিত হবে। সবার জন্য অনলাইনে পোস্ট প্রকাশ করতে আলাদা ডেটাবেস বা CMS যুক্ত করতে হবে।</p>
+</form>
+</details>
+</div></section>
+
+<section class="soft" id="contact"><div class="container">
+<div class="contact-box">
+<h2>যোগাযোগ করুন</h2>
+<p>ভর্তি ও প্রতিষ্ঠানের তথ্য জানতে সরাসরি কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।</p>
+<p>📍 Cox's Bazar, Bangladesh</p>
+<p>ফোন নম্বর: <em>এখানে প্রতিষ্ঠানের সঠিক নম্বর যোগ করুন</em></p>
+<a class="btn" href="#admission">ভর্তি তথ্য দেখুন</a>
+</div></div></section>
+</main>
+
+<footer>
+<p>© <span id="year"></span> Darul Aman Academy, Cox's Bazar</p>
+<p>শিক্ষা, আদব ও সুন্দর ভবিষ্যতের পথে</p>
+</footer>
+
+<script>
+const voiceBtn = document.getElementById("voiceBtn");
+voiceBtn.addEventListener("click", function () {
+  if (!("speechSynthesis" in window)) {
+    alert("আপনার ব্রাউজারে Voice সুবিধাটি সমর্থিত নয়।");
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const message = new SpeechSynthesisUtterance(
+    "আসসালামু আলাইকুম। আমাদের Darul Aman Academy-তে আপনাকে স্বাগতম।"
+  );
+  message.lang = "bn-BD";
+  message.rate = 0.85;
+  message.pitch = 1;
+  window.speechSynthesis.speak(message);
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const postForm = document.getElementById("postForm");
+const postList = document.getElementById("postList");
+const storageKey = "darulAmanAcademyPosts";
+
+function getPosts() {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey) || "[]");
+  } catch (error) {
+    return [];
+  }
+}
+
+function renderPosts() {
+  const posts = getPosts();
+  postList.innerHTML = "";
+  if (posts.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "small";
+    empty.textContent = "এখনো কোনো পোস্ট প্রকাশ করা হয়নি।";
+    postList.appendChild(empty);
+    return;
+  }
+  posts.slice().reverse().forEach(function (post, index) {
+    const article = document.createElement("article");
+    article.className = "post";
+    const title = document.createElement("h3");
+    title.textContent = post.title;
+    const date = document.createElement("time");
+    date.textContent = post.date;
+    const body = document.createElement("p");
+    body.style.whiteSpace = "pre-wrap";
+    body.textContent = post.body;
+    article.append(title, date, body);
+    const remove = document.createElement("button");
+    remove.className = "btn";
+    remove.type = "button";
+    remove.textContent = "এই ডিভাইস থেকে মুছুন";
+    remove.addEventListener("click", function () {
+      if (!confirm("এই পোস্টটি এই ডিভাইস থেকে মুছে ফেলবেন?")) return;
+      const current = getPosts();
+      current.splice(current.length - 1 - index, 1);
+      localStorage.setItem(storageKey, JSON.stringify(current));
+      renderPosts();
+    });
+    article.appendChild(remove);
+    postList.appendChild(article);
+  });
+}
+
+postForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const title = document.getElementById("postTitle").value.trim();
+  const body = document.getElementById("postBody").value.trim();
+  if (!title || !body) return;
+  const posts = getPosts();
+  posts.push({
+    title: title,
+    body: body,
+    date: new Date().toLocaleString("bn-BD")
+  });
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(posts));
+    postForm.reset();
+    renderPosts();
+    alert("পোস্ট এই ডিভাইসে সংরক্ষণ করা হয়েছে।");
+  } catch (error) {
+    alert("পোস্ট সংরক্ষণ করা যায়নি। ব্রাউজারের স্টোরেজ সেটিংস পরীক্ষা করুন।");
+  }
+});
+
+renderPosts();
+</script>
+</body>
+</html>
+'''
+
+path = Path("/mnt/data/index.html")
+path.write_text(html, encoding="utf-8")
+print(f"সম্পূর্ণ index.html তৈরি হয়েছে: {path}")
+করুন</p>
         </div>
         <div class="contact-grid">
           <div class="info-box">
